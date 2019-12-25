@@ -1,0 +1,296 @@
+/*取消所有的边距*/
+body section {
+  line-height: normal;
+  margin:0px;
+  padding: 0px;
+  color: #000;
+}
+/*定义导航栏样式*/
+.nav{
+    position: relative;
+    background-color: #F8F8F8;
+    padding:20px;
+    height: auto;
+    overflow: auto;
+}
+
+/*定义导航表格样式*/
+.nav table{
+    float: left;
+}
+
+/*定义导航表格中每一格的样式*/
+.nav td{
+    padding: 5px 15px;
+}
+
+/*定义导航栏中标题字的样式*/
+.title{
+    color: #787878;
+}
+
+/*定义导航栏中输入框的样式*/
+.input-block{
+    line-height: 1.4;
+    display: block;
+    font-size: 16px;
+    color: #7159c1;
+    border-radius: 2px;
+    border: 1px solid #ccddef;
+    outline-color: #7159c1;
+}
+
+/*定义导航栏中单选框的样式*/
+.select-block{
+    height: 26px;
+    width: 197px;
+    display: block;
+    font-size: 15px;
+    color: #000;
+    border-radius: 2px;
+    border: 1px solid #ccddef;
+    outline-color: #7159c1;
+}
+
+/*定义搜索框中的图片样式*/
+.search{
+    height:18px;
+    margin-left: 172px;
+    margin-top: 2px;
+    position: absolute;
+}
+
+/*定义超链接的手指样式*/
+.pointer{
+    cursor: pointer;
+}
+
+/*导航栏中选中的样式定义*/
+.nav .active{
+    border: 1px solid #7159c1;
+    color: #7159c1;
+}
+
+/*设置导航栏中所有按钮的样式*/
+.nav a{
+    padding:2px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+}
+
+
+/*设置按钮样式*/
+.btn{
+    color: white;
+    background: #7159c1;
+    font-size: 16px;
+    line-height: 33px;
+    height: 33px;
+    padding: 0px 20px;
+    border-radius: 3px;
+    display: inline-block;
+    text-decoration:none;
+    transition:background .15s;
+    text-align: center;
+    width: 70px;
+}
+.btn:hover{
+    background-color: rgb(81,67,224);
+}
+
+/*搜索按钮样式*/
+.searchBtn{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    margin: 20px 40px;
+}
+
+/*定义明细列表样式*/
+.list {
+    margin:36px;
+}
+
+/*定义列表明细的表格属性*/
+/*解决表格变形的问题*/
+.listTable{
+    width: 100%;
+    clear: both;
+    padding-top: 27px;
+    table-layout: fixed;
+    border: 0px;
+}
+
+/*定义每一个单元格的长度*/
+.listTable th,
+.list td{
+    text-align: left;
+    width: 16%;
+    height: 38px;
+}
+
+/*定义灰色表格属性*/
+.gray{
+    background-color: #F8F8F8;
+}
+
+
+/*定义异常的上下线时间样式*/
+.exceptionTime{
+    border:1px solid #FF6600;
+    color: #FF6600;
+    padding:2px;
+}
+
+/*定义异常的状态样式*/
+.exceptionStatus{
+    background-color: #FF6600;
+    padding-left: 2px;
+    padding-right: 2px;
+    border-radius: 2px;
+}
+
+
+/*定义显示更多按钮的样式*/
+.listMore{
+    background-color: #ccddef;
+    color: white;
+    text-align: center;
+    margin-top: 15px;
+    line-height: 40px;
+}
+
+
+/***************使用div模拟下拉菜单的样式***************/
+/*ul、li样式*/
+ul,li{
+    list-style-type: none;
+    padding: 0px;
+    margin:0px;
+}
+
+/*定义下拉框样式*/
+.select{
+    width: 193px;
+    height: 22px;
+    line-height: 21px;
+    border: 1px solid #7159c1;
+}
+
+#text_left{
+    display:block;
+    width: 180px;
+    float: left;
+    padding: 0 5px;
+}
+
+#arrow_right{
+    float: right;
+    margin-top: -20px;
+}
+
+/*定义选项的样式*/
+.option{
+    width: 192px;
+    border: 1px solid;
+}
+
+.option li{
+    line-height: 24px;
+    padding: 0 5px;
+}
+
+.option li:hover{
+    background-color: #ccddef;
+}
+
+/*使得选择框为绝对定位，防止挤开别的元素*/
+.optionDIV{
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    position: relative;
+    left: 133px;
+    margin-top: -61px;
+    margin-bottom: -37px;
+    overflow-y: auto;
+    width: 194px;
+}
+
+/*定义信息中心向右箭头的样式*/
+#arrowRight{
+    width: 18px;
+    float:right;
+    position:relative;
+    right: -1px;
+    bottom:-1px;
+}
+
+/*定义信息中心浮出层的样式*/
+.detailInfo{
+    position: relative;
+    left: 326px;
+    bottom: -36px;
+    margin-bottom: -26px;
+}
+
+
+/*定义异常描述div弹出层的背景层*/
+#popLayer{
+    display: none;
+    background-color: #B3B3B3;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    z-index: 10;/*设置弹出层和背景层的上下位置，越大越靠上显示*/
+    -moz-opacity: 0.8;
+    opacity: .80;
+}
+
+/*定义弹出层的样式*/
+/*#popBox{
+    display: none;
+    background-color: #FFFFFF;
+    z-index: 11;
+    width: 200px;
+    height: 200px;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    bottom: 0px;
+    margin:auto;
+}
+
+/*弹出框的关闭按钮样式*/
+/*#popBox .close{
+    text-align: right;
+    margin-right: 5px;
+    background-color: #F8F8F8;
+}*/
+
+/*关闭按钮*/
+/*#popBox .close a{
+    text-decoration: none;
+    color: #2D2C3B;
+}*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>考勤打卡页面</title>
+  <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.6.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" type="text/css" href="css/workCSS.css">
+</head>
+
+<body>
+  <div class="container el-row">
+    <div class="header el-col el-col-24">
+      <div class="logo el-col el-col-10 logo-width">企业考勤系统</div>
+      <div class="userinfo el-col el-col-4">
+        <div class="el-dropdown">
+          <div id="welcome" onclick="btn_toggle()" class="el-dropdown-link userinfo-inner el-dropdown-selfdefine"
+            tabindex="0"></div>
+          <ul class="el-dropdown-menu el-popper hide">
+            <li tabindex="-1" class="el-dropdown-menu__item" onclick="location.href='./info.html'">我的资料</li>
+            <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided"
+              onclick="location.href='./login.html'">退出登录</li>
+          </ul>
+        </div>
+      </div>
+      <div class="main el-col el-col-24">
+        <aside class="menu-expanded">
+          <ul role="menubar" class="el-menu-vertical-demo el-menu" data-old-overflow="hidden" data-scroll-width="230"
+            style="width: 230px; overflow: hidden;">
+            <li role="menuitem" aria-haspopup="true" class="el-submenu is-active">
+              <div class="el-submenu__title" style="padding-left: 20px;" onclick="location.href='./attence.html'">部门考勤
+              </div>
+            </li>
+            <li role="menuitem" aria-haspopup="true" class="el-submenu">
+              <div class="el-submenu__title" style="padding-left: 20px;" onclick="location.href='./work.html'">考勤打卡
+              </div>
+            </li>
+            <!---->
+            <li role="menuitem" aria-haspopup="true" class="el-submenu">
+              <div class="el-submenu__title" style="padding-left: 20px;" onclick="location.href='./calendar.html'">工作日历
+              </div>
+            </li>
+          </ul>
+        </aside>
+        <section class="content-container">
+          <div class="work">
+            <button class="btn" id="showModel">修改工作时间</button>
+            <!-- 上班打卡 -->
+            <div id="onWork">
+              <p>上班时间<span id="onTime"> 09:00</span></p>
+              <!-- 打卡的圆圈 -->
+              <span class="ka" id="on">
+                <p>上班打卡<br><span class="time" id="t1"></span></p>
+              </span>
+            </div>
+            <!-- 下班打卡 -->
+            <div id="offWork">
+              <p>下班时间<span id="offTime"> 18:00</span></p>
+              <!-- 打卡的圆圈 -->
+              <span class="ka" id="off">
+                <p>下班打卡<br><span class="time" id="t2"></span></p>
+              </span>
+            </div>
+          </div>
+          <div class="stat">
+            <h3>个人考勤统计</h3>
+            <ul class="menu">
+              <li class="list">
+                &nbsp;&nbsp;&nbsp;平均工时<span>9小时</span>
+                <ul class="items">
+                  <li class="gui">
+                    <p>&nbsp;&nbsp;&nbsp;平均工时=打卡工时/打卡天数</p>
+                  </li>
+                  <li><a>2019-12-02 (星期一) &nbsp;9小时</a></li>
+                  <li><a>2019-12-03 (星期二) &nbsp;9小时</a></li>
+                  <li><a>2019-12-05 (星期四) &nbsp;9小时</a></li>
+                  <li><a>2019-12-06 (星期五) &nbsp;9小时</a></li>
+                  <li><a>2019-12-09 (星期一) &nbsp;9小时</a></li>
+                </ul>
+              </li>
+              <li class="list">
+                &nbsp;&nbsp;&nbsp;出勤天数<span>5天</span>
+                <ul class="items">
+                  <li><a>2019-12-02 (星期一)</a></li>
+                  <li><a>2019-12-03 (星期二)</a></li>
+                  <li><a>2019-12-05 (星期四)</a></li>
+                  <li><a>2019-12-06 (星期五)</a></li>
+                  <li><a>2019-12-09 (星期一)</a></li>
+                </ul>
+              </li>
+              <li class="list">
+                &nbsp;&nbsp;&nbsp;休息天数<span>2天</span>
+                <ul class="items">
+                  <li><a>2019-12-07 (星期六) &nbsp;9小时</a></li>
+                  <li><a>2019-12-08 (星期天) &nbsp;9小时</a></li>
+                </ul>
+              </li>
+              <li class="list">
+                &nbsp;&nbsp;&nbsp;迟到<span>1次</span>
+                <ul class="items">
+                  <li><a>2019-12-05 (星期四)</a></li>
+                </ul>
+              </li>
+              <li class="list">
+                &nbsp;&nbsp;&nbsp;早退<span>0次</span>
+              </li>
+              <li class="list">
+                &nbsp;&nbsp;&nbsp;缺卡<span>1次</span>
+                <ul class="items">
+                  <li><a>2019-12-12 (星期四)</a></li>
+                </ul>
+              </li>
+              <li class="list">
+                &nbsp;&nbsp;&nbsp;旷工<span>2次</span>
+                <ul class="items">
+                  <li><a>2019-12-10 (星期二)</a></li>
+                  <li><a>2019-12-11 (星期三)</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <div id="modal" class="modal">
+            <div class="modal-content">
+              <header class="modal-header">
+                <h4>工作时间</h4>
+                <span class="close">×</span>
+              </header>
+              <div class="modal-body">
+                <label for="newOn">上班时间：</label>
+                <input type="time" id="newOn" value="09:00"><br /><br />
+                <label for="newOff">下班时间：</label>
+                <input type="time" id="newOff" value="18:00">
+              </div>
+              <footer class="modal-footer">
+                <button id="cancel">取消</button>
+                <button id="sure">确定</button>
+              </footer>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/workJS.js"></script>
+</body>
+
+</html>

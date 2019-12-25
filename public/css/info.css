@@ -1,0 +1,230 @@
+/*设置html样式*/
+body {
+	background-color: #ccddef;
+	/*设置字体*/
+	font-size: 15px;
+	font-family: "Roboto", "Arial", "sans-serif";
+}
+
+/*取消所有外边距*/
+*{
+	margin: 0px;
+	padding: 0px;
+}
+
+/*所有的超链接取消样式*/
+a{
+	text-decoration: none;
+}
+
+
+/*设置页面头部边距*/
+.page-header{
+	text-align: center;
+	padding: 20px 30px;
+	overflow: hidden;
+}
+
+/*设置标题头字体，去掉下划线样式，并浮动到左侧*/
+.page-header .title{
+	margin-top: 200px;
+	font-size: 50px;
+	color: white;
+	text-decoration: none;
+}
+
+/*白色的面板*/
+/*box-shawod设置鼠标悬停时产生白色的阴影*/
+/*transition使得阴影出现过程持续0.3秒*/
+.panel {
+	margin: 50px auto 60px;
+	text-align: center;
+	background-color: white;
+	width: 800px;
+	border-radius: 10px;	/*弧角*/
+	padding: 1px;
+	transition: box-shadow .30s;
+}
+.panel:hover{
+	box-shadow: #fff 5px 5px 25px;
+}
+
+/*设置头像的样式，设置为圆形，且出去一半*/
+.avatar img{
+	width: 120px;
+	height: 120px;
+	border-radius: 60px;
+	margin-top: -60px;
+}
+
+
+/*设置h3标题样式，设置为粗体并设置一定的边距*/
+h3 {
+	font-weight: bold;
+	font-size: 50px;
+	margin: 15px 0px 20px;
+}
+
+/*设置P标签颜色为灰色并且为斜体*/
+p.lead{
+	color: #333;
+	font-style: italic;
+	margin-bottom: 30px;
+}
+
+
+/*设置按钮样式*/
+.btn{
+	color: white;
+	background: rgb(48,35,174);
+	font-size: 16px;
+	line-height: 38px;
+	height: 38px;
+	padding: 0px 20px;
+	border-radius: 3px;
+	display: inline-block;
+	text-decoration:none;
+	transition:background .15s;
+	margin: 20px 25px 20px 25px;
+}
+.btn:hover{
+	background-color: rgb(81,67,224);
+}
+
+/*设置标签样式*/
+.tags{
+	margin-top: 30px;
+	margin-bottom: 20px;
+	color: #999;
+}
+.tag{
+	magin:0px 15px;
+}
+/*为标签设置:before伪元素，可以自动添加一个前缀#*/
+.tag:after{
+	content: ':';
+}
+
+
+
+/*定义表单样式*/
+/*定义表单的块*/
+.info {
+  	margin: 20px 0;
+  	padding: 30px 25px;
+  	text-align: left;
+}
+
+.info .input-block {
+  	margin-top: 20px;
+}
+
+/*定义表单中的label标签样式*/
+.info .input-block label {
+  	font-size: 15px;
+ 	color: darkslateblue;
+}
+
+/*定义表单中的input标签样式*/
+.info .input-block input {
+  	width: 70%;
+  	display: block;
+  	margin-top: 8px;
+  	padding: 7px;
+  	font-size: 16px;
+  	color: #7159c1;
+  	border-radius: 2px;
+  	border: 1px solid #ccddef;
+  	outline-color: #7159c1;
+}
+/*textarea样式*/
+.info .input-block textarea {
+	width: 70%;
+	display: block;
+	margin-top: 8px;
+	padding: 7px;
+	font-size: 16px;
+	color: #7159c1;
+	border-radius: 2px;
+	border: 1px solid #ccddef;
+	outline-color: #7159c1;
+}
+
+/*定义表格的样式*/
+table {
+	width: 100%;
+	margin-left: 50px;
+}
+
+/*表示不展示*/
+.none{
+	display: none;
+}
+
+/*定义ul,ol即导航块样式*/
+ul,ol {
+	list-style: outside none none;
+}
+
+/*定义导航栏的样式位于左边宽度和高度*/
+.nav {
+	margin-left: 10px;
+	width: 640px;
+	/*height: 70px;*/
+	line-height: 50px;
+	color: #eee;
+	margin-bottom: 0px;
+}
+
+/*设置列表左浮动，成行排列*/
+.nav li{
+	float: left;
+	width: 120px;
+	text-align: center;
+}
+
+/*超链接以块状形式出现，并设置弧角*/
+.nav a{
+	display: block;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+	color: #7159c1;
+}
+
+/*当标签被悬浮选中时出现手型*/
+.nav a:hover{
+	background-color: #3399FF;
+}
+.nav .active a{
+	background-color: #3399FF;
+}
+
+.pointer{
+	cursor: pointer;
+}
+
+/*信息填写提示标题*/
+.InfoTitle{
+	text-align: left;
+	font-size:20px ;
+	color: #7159c1;
+	margin: 10px;
+	float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

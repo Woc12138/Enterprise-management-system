@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>考勤明细</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="css/attence.css" rel="stylesheet" type="text/css">
+</head>
+
+<body id="body">
+  <script type="text/javascript" src="js/attence.js"></script>
+  <div class="container el-row">
+    <div class="header el-col el-col-24">
+      <div class="logo el-col el-col-10 logo-width">企业考勤系统</div>
+
+      <div class="userinfo el-col el-col-4">
+        <div class="el-dropdown">
+          <div id="welcome" onclick="btn_toggle()" class="el-dropdown-link userinfo-inner el-dropdown-selfdefine"
+            tabindex="0"></div>
+          <ul class="el-dropdown-menu el-popper hide">
+            <li tabindex="-1" class="el-dropdown-menu__item" onclick="location.href='./info.html'">我的资料</li>
+            <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided"
+              onclick="location.href='./login.html'">退出登录</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="main el-col el-col-24">
+        <aside class="menu-expanded">
+          <ul role="menubar" class="el-menu-vertical-demo el-menu" data-old-overflow="hidden" data-scroll-width="230"
+            style="width: 230px; overflow: hidden;">
+            <li role="menuitem" aria-haspopup="true" class="el-submenu is-active">
+              <div class="el-submenu__title" style="padding-left: 20px;" onclick="location.href='./attence.html'">部门考勤
+              </div>
+            </li>
+            <li role="menuitem" aria-haspopup="true" class="el-submenu">
+              <div class="el-submenu__title" style="padding-left: 20px;" onclick="location.href='./work.html'">考勤打卡
+              </div>
+            </li>
+            <!---->
+            <li role="menuitem" aria-haspopup="true" class="el-submenu">
+              <div class="el-submenu__title" style="padding-left: 20px;" onclick="location.href='./calender.html'">工作日历
+              </div>
+            </li>
+          </ul>
+        </aside>
+        <section class="content-container">
+          <div>
+            <!--定义导航栏块-->
+            <div class="nav">
+              <table>
+                <tr id="time">
+                  <td class="title">时间范围</td>
+                  <td><a class="pointer active" id="nowDay" onclick="changeTime('nowDay');">今天</a></td>
+                  <td><a class="pointer" id="lastDay" onclick="changeTime('lastDay');">昨天</a></td>
+                  <td><a class="pointer" id="nowWeek" onclick="changeTime('nowWeek');">本周</a></td>
+                  <td><a class="pointer" id="lastWeek" onclick="changeTime('lastWeek');">上周</a></td>
+                  <td><a class="pointer" id="nowMonth" onclick="changeTime('nowMonth');">本月</a></td>
+                  <td><a class="pointer" id="lastMonth" onclick="changeTime('lastMonth');">上月</a></td>
+                  <td>
+                    <form>
+                      <input type="text" placeholder="开始日期" id="startDate" onclick="textToDate('startDate')"
+                        style="height: 21px;width: 139px;">
+                      <label class="title"> to </label>
+                      <input type="text" placeholder="截止日期" id="endDate" onclick="textToDate('endDate')"
+                        style="height: 21px;width: 139px;">
+                    </form>
+                  </td>
+                </tr>
+                <tr id="status">
+                  <td class="title">状态</td>
+                  <td><a class="pointer active" id="all" onclick="changeStatus('all');onSearch((this),4);">全部</a></td>
+                  <td><a class="pointer" id="normal" onclick="changeStatus('normal');onSearch((this),4);">正常</a></td>
+                  <td><a class="pointer" id="exception" onclick="changeStatus('exception');onSearch((this),4);">异常</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="title" id="department">部门</td>
+                  <td colspan="3">
+                    <form>
+                      <div class="select">
+                        <span id="text_left">主机科</span>
+                        <img id="arrow_right" src="img/arrow.png">
+                      </div>
+                    </form>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="title">用户</td>
+                  <td colspan="3">
+                    <form>
+                      <input type="search" class="input-block" placeholder="输入姓名查找某员工" id="search"
+                        style="margin-bottom: -24px;">
+                      <a class="pointer"><img src="img/timg.jpg" class="search" id="searchImg"></a>
+                    </form>
+                  </td>
+                </tr>
+              </table>
+              <div class="searchBtn">
+                <a class="btn pointer">
+                  搜索
+                </a>
+                <a class="btn pointer" style="background: #ffffff; color: #000;">
+                  重置
+                </a>
+              </div>
+            </div>
+
+            <div style="display: none" class="optionDIV" id="optionDIV1">
+              <ul class="option">
+                <li onclick="changeDepartment('策划部')" id="option1">策划部</li>
+                <li onclick="changeDepartment('采编部')" id="option2">采编部</li>
+                <li onclick="changeDepartment('运维部')" id="option3">运维部</li>
+                <li id="infoCenter">信息中心<img src="img/arrowRight.png" id="arrowRight"></li>
+              </ul>
+            </div>
+            <div id="optionDIV2" style="display: none" class="optionDIV  detailInfo">
+              <ul class="option">
+                <li onclick="changeDepartment('网络科')">网络科</li>
+                <li onclick="changeDepartment('主机科')">主机科</li>
+              </ul>
+            </div>
+
+            <div class="list">
+              <h3 style="float: left; margin-top: 8px;">明细列表</h3>
+              <a class="btn pointer" style="float: right;" id="detailDownload">导出</a>
+              <div>
+                <table class="listTable" id="listTable">
+                  <tr class="title gray">
+                    <th>时间</th>
+                    <th>用户</th>
+                    <th>上线时间</th>
+                    <th>下线时间</th>
+                    <th>状态</th>
+                    <th>部门</th>
+                  </tr>
+                  <tr>
+                    <td>2015/09/28</td>
+                    <td>A</td>
+                    <td>08:35</td>
+                    <td>18:61</td>
+                    <td>正常</td>
+                    <td>产线二组</td>
+                  </tr>
+                  <tr class="gray">
+                    <td>2015/09/28</td>
+                    <td>B</td>
+                    <td><label class="exceptionTime">09:35</label></td>
+                    <td><label class="exceptionTime">19:00</label></td>
+                    <td><label class="exceptionStatus">异常</label></td>
+                    <td>产线二组</td>
+                  </tr>
+                  <tr>
+                    <td>2015/09/28</td>
+                    <td>C</td>
+                    <td>08:35</td>
+                    <td><label class="exceptionTime">17:59</label></td>
+                    <td><label class="exceptionStatus">异常</label></td>
+                    <td>信息中心/网络科</td>
+                  </tr>
+                  <tr class="gray">
+                    <td>2015/09/28</td>
+                    <td>D</td>
+                    <td><label class="exceptionTime">&nbsp;. . . . . </label></td>
+                    <td><label class="exceptionTime">&nbsp;. . . . . </label></td>
+                    <td><label class="exceptionStatus">异常</label></td>
+                    <td>信息中心/网络科</td>
+                  </tr>
+                  <tr>
+                    <td>2015/09/28</td>
+                    <td>A</td>
+                    <td>08:35</td>
+                    <td>18:61</td>
+                    <td>正常</td>
+                    <td>信息中心/网络科</td>
+                  </tr>
+                  <tr class="gray">
+                    <td>2015/09/28</td>
+                    <td>E</td>
+                    <td>08:35</td>
+                    <td>18:61</td>
+                    <td>正常</td>
+                    <td>信息中心/网络科</td>
+                  </tr>
+                  <tr>
+                    <td>2015/09/28</td>
+                    <td>G</td>
+                    <td>08:35</td>
+                    <td>18:61</td>
+                    <td>正常</td>
+                    <td>产线二组</td>
+                  </tr>
+                  <tr class="gray">
+                    <td>2015/09/28</td>
+                    <td>B</td>
+                    <td>08:35</td>
+                    <td>18:61</td>
+                    <td>正常</td>
+                    <td>产线二组</td>
+                  </tr>
+                </table>
+                <h4 class="title" align="center" style="margin-top: 20px;">显示
+                  <label id="nowDisplay" style="color: #7159c1;">8</label> /
+                  <label id="totalDisplay">23</label>个结果
+                </h4>
+
+                <h2 class="listMore">
+                  <a class="pointer" onclick="addTable()">+显示更多</a>
+                </h2>
+              </div>
+            </div>
+
+
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <!--弹出框-->
+  <!--<div id="popLayer"></div>
+        <div id="popBox">
+            <div class="close">
+                <a class="pointer" onclick="closeBox()">关闭</a>
+            </div>
+            <div class="content"></div>
+        </div>-->
+  <script src="js/main.js"></script>
+
+</body>
+
+</html>

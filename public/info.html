@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<!--设置文档标题、引入外部样式表-->
+		<meta charset="utf-8">
+		<title>职工个人信息</title>
+		<link href="css/info.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<body>
+		<!--顶部标题-->
+		<div class="page-header" align="center">
+			<a onclick="location.href='./attence.html'" style="float: left; font-size: 25px;" >返回首页</a>
+			<a class="title" href="" style="margin-left: -84px;">员工个人资料</a>
+		</div>
+
+		<div class="panel" >
+			<!--员工照片-->
+			<p class="avatar">
+				<img src="img/2.bmp" alt="照片" >
+			</p>
+			<!--更换头像-->
+			<form align="center">
+				<a class="btn pointer" onclick="changeAvatar()" style="margin-top: 10px;margin-bottom: 10px;">
+					<i class="fa fa-bars"></i>上传照片
+				</a>
+				<input type="file" name="avatar" id="avatarUpload" hidden="hidden" style="display: none">
+			</form>
+
+			<div class="nav">
+				<ul id="optionToInfo">
+					<li id="baseInfo" class="active" onclick="changeOption('baseInfo');show1();"><a class="pointer">基本信息</a></li>
+					<li id="extraInfo" onclick="changeOption('extraInfo');show2();"><a class="pointer">个人简历</a></li>
+					<li id="settingInfo" onclick="changeOption('settingInfo');show3();"><a class="pointer">修改密码</a></li>
+				</ul>
+			</div>
+
+
+
+			<div id="div1" style="clear: both;">
+				<hr color="#3399FF" style="margin-top: 0px;">
+				<label class="InfoTitle">个人基本信息(*为必填项)：</label>
+				<form id="base" class="info" name="base">
+					<table>
+						<tr>
+							<td class="input-block">
+								<label for="name">*姓名</label>
+								<input type="text" disabled="true" id="name" value="李二狗">
+							</td>
+							<td class="input-block">
+								<label for="sex">性别</label>
+								<input type="text" disabled="true" id="sex" value="男">
+							</td>
+						</tr>
+
+						<tr>
+							<td class="input-block">
+								<label for="date">*入职时间</label>
+								<input type="date" id="date" value="2019-12-23"></td>
+							</td>
+							<td class="input-block">
+								<label for="telephone">*工作部门</label>
+								<input type="text" id="work" required="required" value="运维部">
+							</td>
+						</tr>
+
+						<tr>
+							<td class="input-block">
+								<label for="telephone">*手机号码</label>
+								<input type="tel" id="telephone" value="18870126708"></td>
+							</td>
+							<td class="input-block">
+								<label for="job">*职务</label>
+								<input type="text" id="job"></td>
+							</td>
+						</tr>
+						<tr>
+							<td class="input-block">
+								<label for="email">电子邮箱</label>
+								<input type="email" id="email">
+							</td>
+							<td class="input-block">
+								<label for="address">现居住地</label>
+								<input type="email" id="address">
+							</td>
+						</tr>
+					</table>
+					<!--错误消息提示-->
+					<div style="text-align: center; color: red" id="waringInfo1"></div>
+					<p align="center">
+						<a class="btn pointer" onclick="check1()">
+							<i class="fa fa-bars"></i>提交
+						</a>
+						<a class="btn pointer" onclick="reset('base')">
+							<i class="fa fa-bars"></i>取消
+						</a>
+					</p>
+				</form>
+			</div>
+
+
+			<div id="div2" style="display:none;clear: both">
+				<hr color="#3399FF" style="margin-top: 0px;">
+				<label class="InfoTitle">个人简历：</label>
+				<form id="extra" class="info" name="extra">
+					<table>
+						<tr>
+							<td class="input-block">
+								<label for="workExperiment">工作经验</label>
+								<textarea id="workExperiment" rows="3" cols="50">
+
+								</textarea>
+							</td>
+
+						</tr>
+
+						<tr>
+							<td class="input-block">
+								<label for="educationExperiment">教育经历</label>
+								<textarea id="educationExperiment" rows="3" cols="50">
+
+								</textarea>
+							</td>
+						</tr>
+
+						<tr>
+							<td class="input-block">
+								<label for="peixunExperiment">培训经历</label>
+								<textarea id="peixunExperiment" rows="3" cols="50">
+
+								</textarea>
+							</td>
+						</tr>
+					</table>
+
+					<p align="center">
+						<a class="btn pointer" onclick="check2()">
+							<i class="fa fa-bars"></i>提交
+						</a>
+						<a class="btn pointer" onclick="reset('extra')">
+							<i class="fa fa-bars"></i>取消
+						</a>
+					</p>
+				</form>
+			</div>
+
+
+			<div id="div3" style="display:none;clear: both">
+				<hr color="#3399FF" style="margin-top: 0px;">
+				<label class="InfoTitle">修改密码：</label>
+				<form id="modifiedPass" class="info" name="setting">
+					<table>
+						<tr>
+							<td class="input-block">
+								<label for="workExperiment">当前密码</label>
+								<input type="password" id="password" placeholder="请输入您当前的密码">
+							</td>
+
+						</tr>
+
+						<tr>
+							<td class="input-block">
+								<label for="educationExperiment">新密码</label>
+								<input type="password" id="newPassword" placeholder="请输入新密码，大于等于6位">
+							</td>
+						</tr>
+
+						<tr>
+							<td class="input-block">
+								<label for="peixunExperiment">确认新密码</label>
+								<input type="password" id="rePassword" placeholder="请再次确认需要修改的新密码">
+							</td>
+						</tr>
+					</table>
+
+					<!--错误消息提示-->
+					<div style="text-align: center; color: red" id="waringInfo3"></div>
+
+					<p align="center">
+						<a class="btn pointer" onclick="check3()">
+							<i class="fa fa-bars"></i>提交
+						</a>
+						<a class="btn pointer" onclick="reset('modifiedPass')">
+							<i class="fa fa-bars"></i>取消
+						</a>
+					</p>
+				</form>
+			</div>
+		</div>
+
+
+    <!--引入外部js文件-->
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/info.js"></script>
+	</body>
+</html>

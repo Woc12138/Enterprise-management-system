@@ -1,0 +1,203 @@
+@font-face {
+  font-family: 'cute';
+  src: url('../font/cute.ttf');
+}
+
+.content-container {
+  line-height: normal;
+  margin: 0px;
+  padding: 0px;
+  color: #000;
+  text-align: center;
+  background: #BBB97E;
+}
+
+.left {
+  width: 45%;
+}
+
+.calendar {
+  /* margin: auto; */
+  font-size: 25px;
+  font-family: Arial;
+  position: relative;
+  left: 2%;
+}
+
+.title {
+  border-bottom: 1px solid;
+  height: 140px;
+  width: 90%;
+  padding: 60px 20px 0 20px;
+}
+
+h1 {
+  font-size: 3.5em;
+  font-family: "cute";
+  margin: 0;
+}
+
+h2 {
+  font-family: "cute";
+  margin: auto;
+  width: 200px;
+}
+
+td {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+}
+
+tbody td.selected {
+  background: #85844C;
+}
+
+tbody td.today {
+  background: #939159;
+}
+
+a {
+  font-size: 1.4em;
+  color: #ddd;
+  display: inline-block;
+  width: 40px;
+  height: 60px;
+  border-radius: 3px;
+  padding-top: 20px;
+}
+
+a:hover {
+  background: #85844C;
+  color: #BBB97E;
+}
+
+#next {
+  position: relative;
+  right: 40px;
+  top: -65px;
+  float: right;
+}
+
+#pre {
+  position: relative;
+  left: 40px;
+  top: -65px;
+  float: left;
+}
+
+.todolist {
+  width: 35%;
+  height: 80%;
+  position: absolute;
+  right: 30px;
+  top: 80px;
+  border-radius: 10px;
+}
+
+.todolist h2 {
+  font-size: 2em;
+  font-family: 'KaiTi';
+  padding: 10px 0px 10px 0px;
+}
+
+.timeline {
+  list-style: none;
+  text-align: left;
+  max-height: 465px;
+  overflow-y: auto;
+  margin: 0;
+  /* border: 1px solid; */
+}
+
+.timeline::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline li {
+  /* border: 1px solid; */
+  border-radius: 5px;
+  height: 35px;
+  padding: 6px 10px 0px 10px;
+  margin-bottom: 3.5px;
+  background: #fff;
+
+}
+
+.timeline li:hover {
+  background: #f5f5f5;
+}
+
+.icon {
+  width: 1.7em;
+  height: 1.7em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.timeline li .icon-yuan::after {
+  box-sizing: border-box;
+  width: 6px;
+  height: 10px;
+  position: relative;
+  transform: rotate(45deg);
+  border: 2px solid black;
+  border-top: 0;
+  border-left: 0;
+  left: -17px;
+  top: -8px;
+  display: inline-block;
+  visibility: hidden;
+  content: '';
+}
+
+.timeline li .icon-yuan:hover:after {
+  visibility: visible;
+}
+
+.timeline li p {
+  display: inline-block;
+  position: relative;
+  top: -4px;
+  left: 10px;
+  font-size: 1.2em;
+  margin: 0;
+}
+
+
+.icon-shanchu {
+  float: right;
+}
+
+.icon-task {
+  position: absolute;
+  left: 150px;
+  top: 16px;
+}
+
+.icon-tianjia {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  font-size: 1.2em;
+}
+
+.todolist input {
+  height: 42px;
+  width: 94.5%;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 0px;
+  left: -1px;
+  border: none;
+  outline: none;
+  color: black;
+  font-size: 1.2em;
+  background: url("../img/tianjia.png") no-repeat 5%;
+  background-size: 35px 35px;
+  background-position: 3px 2px;
+  background-color: #939159;
+  padding-left: 40px;
+}

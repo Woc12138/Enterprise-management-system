@@ -1,0 +1,22 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./app.js",
+    "dev": "node ./app.js"
+  },
+  "dependencies": {},
+  "description": "",
+  "main": "app.js",
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "mysql": "^2.17.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

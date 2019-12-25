@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>工作日历界面</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container el-row">
+    <div class="header el-col el-col-24">
+      <div class="logo el-col el-col-10 logo-width">企业考勤系统</div>
+      <div class="userinfo el-col el-col-4">
+        <div class="el-dropdown">
+          <div id="welcome" onclick="btn_toggle()" class="el-dropdown-link userinfo-inner el-dropdown-selfdefine"
+            tabindex="0"></div>
+          <ul class="el-dropdown-menu el-popper hide">
+            <li tabindex="-1" class="el-dropdown-menu__item" onclick="location.href='./info.html'">我的资料</li>
+            <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided"
+              onclick="location.href='./login.html'">退出登录</li>
+          </ul>
+        </div>
+      </div>
+      <div class="main el-col el-col-24">
+        <aside class="menu-expanded">
+          <ul role="menubar" class="el-menu-vertical-demo el-menu" data-old-overflow="hidden" data-scroll-width="230"
+            style="width: 230px; overflow: hidden;">
+            <li role="menuitem" aria-haspopup="true" class="el-submenu is-active">
+              <div class="el-submenu__title" style="padding-left: 20px;" onclick="location.href='./attence.html'">部门考勤
+              </div>
+            </li>
+            <li role="menuitem" aria-haspopup="true" class="el-submenu">
+              <div class="el-submenu__title" style="padding-left: 20px;" onclick="location.href='./work.html'">考勤打卡
+              </div>
+            </li>
+            <!---->
+            <li role="menuitem" aria-haspopup="true" class="el-submenu">
+              <div class="el-submenu__title" style="padding-left: 20px;" onclick="location.href='./calender.html'">工作日历
+              </div>
+            </li>
+          </ul>
+        </aside>
+        <section class="content-container">
+          <div class="left">
+            <div class="title">
+              <h1 class="green" id="calendar-title">Month</h1>
+              <h2 class="green" id="calendar-year">Year</h2>
+              <a javascript:(0) id="pre">
+                <</a> <a javascript:(0) id="next">>
+              </a>
+            </div>
+            <table class="calendar">
+              <thead>
+                <tr>
+                  <td>日</td>
+                  <td>一</td>
+                  <td>二</td>
+                  <td>三</td>
+                  <td>四</td>
+                  <td>五</td>
+                  <td>六</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="row-1" class="row"></tr>
+                <tr id="row-2" class="row"></tr>
+                <tr id="row-3" class="row"></tr>
+                <tr id="row-4" class="row"></tr>
+                <tr id="row-5" class="row"></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="todolist">
+            <svg class="icon icon-task" aria-hidden="true">
+              <use xlink:href="#icon-task"></use>
+            </svg>
+            <h2>今日任务</h2>
+            <ul class="timeline" id="list">
+            </ul>
+            <input type="text" id="add" value="添加任务" required>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+  <script src="js/calendar.js"></script>
+  <script src="js/todolist.js"></script>
+  <script src="js/iconfont.js"></script>
+</body>
+
+</html>
