@@ -55,9 +55,8 @@ function login(req, res) {
 
 function reg(req, res) {
   console.log("req.body: ", req.body);
-
   // 查询用户名是否已经存在
-  conn.query('SELECT * FROM user where account =' + req.body.account, function (err, result) {
+  conn.query('SELECT * FROM user', function (err, result) {
     if (err) {
       res.send({
         code: 1,
@@ -66,7 +65,8 @@ function reg(req, res) {
       console.log('[SELECT ERROR] - ', err.message);
       return;
     }
-      if (result) {
+    for (let i = 0; i < result.length; i++) {
+      if (result[i].account === req.body.account) {
         res.send({
           code: 1,
           msg: '用户名已经存在'
@@ -74,6 +74,7 @@ function reg(req, res) {
         console.log("用户名已经存在");
         return;
       }
+    }
     console.log("register");
     register();
   });
